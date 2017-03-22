@@ -9,6 +9,7 @@ It also provides opt-in functionality via data attributes to improve the default
  - `data-fromstart` - requires that matches are determined from the beginning of the entered input
  - `data-minlength` - implements a minimum length requirement before autofill'ing the input field
 
+View a basic [demo](http://kettle-modules.s3.amazonaws.com/force-list-option/index.html).
 
 ## Safari
 Safari has minimal HTML5 input validation support. 
