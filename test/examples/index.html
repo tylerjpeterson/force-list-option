@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>ForceListOption</title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+	<h1>ForceListOption</h1>
+	<p class="desc center">
+		All inputs below are constrained by an Enforcer instance, which prevent form submission until each field has a value that matches one of its datalist option values.
+	</p>
+	<form method="post" action="./">
+		<div>
+			<label>autofill</label>
+			<input type="text" list="browsers-1" data-autofill data-constrain required>
+			<p class="desc">Input will automatically fill with an option value when the entered value matches only one option. For example, entering "new y" will autofill "New York".</p>
+			<datalist id="browsers-1">
+				<option value="Alabama"><option value="Alaska"><option value="Arizona"><option value="Arkansas"><option value="California"><option value="Colorado"><option value="Connecticut"><option value="Delaware"><option value="Florida"><option value="Georgia"><option value="Hawaii"><option value="Idaho"><option value="Illinois"><option value="Indiana"><option value="Iowa"><option value="Kansas"><option value="Kentucky"><option value="Louisiana"><option value="Maine"><option value="Maryland"><option value="Massachusetts"><option value="Michigan"><option value="Minnesota"><option value="Mississippi"><option value="Missouri"><option value="Montana"><option value="Nebraska"><option value="Nevada"><option value="New Hampshire"><option value="New Jersey"><option value="New Mexico"><option value="New York"><option value="North Carolina"><option value="North Dakota"><option value="Ohio"><option value="Oklahoma"><option value="Oregon"><option value="Pennsylvania"><option value="Rhode Island"><option value="South Carolina"><option value="South Dakota"><option value="Tennessee"><option value="Texas"><option value="Utah"><option value="Vermont"><option value="Virginia"><option value="Washington"><option value="West Virginia"><option value="Wisconsin"><option value="Wyoming">
+			</datalist>
+		</div>
+
+		<div>
+			<label>autofill + autotab</label>
+			<input type="text" list="browsers-2" data-autofill data-autotab data-constrain required>
+			<p class="desc">Focus will automatically shift to the next form element when a valid value is set.</p>
+			<datalist id="browsers-2">
+				<option value="Alabama"><option value="Alaska"><option value="Arizona"><option value="Arkansas"><option value="California"><option value="Colorado"><option value="Connecticut"><option value="Delaware"><option value="Florida"><option value="Georgia"><option value="Hawaii"><option value="Idaho"><option value="Illinois"><option value="Indiana"><option value="Iowa"><option value="Kansas"><option value="Kentucky"><option value="Louisiana"><option value="Maine"><option value="Maryland"><option value="Massachusetts"><option value="Michigan"><option value="Minnesota"><option value="Mississippi"><option value="Missouri"><option value="Montana"><option value="Nebraska"><option value="Nevada"><option value="New Hampshire"><option value="New Jersey"><option value="New Mexico"><option value="New York"><option value="North Carolina"><option value="North Dakota"><option value="Ohio"><option value="Oklahoma"><option value="Oregon"><option value="Pennsylvania"><option value="Rhode Island"><option value="South Carolina"><option value="South Dakota"><option value="Tennessee"><option value="Texas"><option value="Utah"><option value="Vermont"><option value="Virginia"><option value="Washington"><option value="West Virginia"><option value="Wisconsin"><option value="Wyoming">
+			</datalist>
+		</div>
+
+		<div>
+			<label>autofill + autotab + min-matches</label>
+			<input type="text" list="browsers-3" data-minlength="5" data-autotab data-autofill data-constrain required>
+			<p class="desc">Same as above, but disabled until value is at least 5 characters in length.</p>
+			<datalist id="browsers-3">
+				<option value="Alabama"><option value="Alaska"><option value="Arizona"><option value="Arkansas"><option value="California"><option value="Colorado"><option value="Connecticut"><option value="Delaware"><option value="Florida"><option value="Georgia"><option value="Hawaii"><option value="Idaho"><option value="Illinois"><option value="Indiana"><option value="Iowa"><option value="Kansas"><option value="Kentucky"><option value="Louisiana"><option value="Maine"><option value="Maryland"><option value="Massachusetts"><option value="Michigan"><option value="Minnesota"><option value="Mississippi"><option value="Missouri"><option value="Montana"><option value="Nebraska"><option value="Nevada"><option value="New Hampshire"><option value="New Jersey"><option value="New Mexico"><option value="New York"><option value="North Carolina"><option value="North Dakota"><option value="Ohio"><option value="Oklahoma"><option value="Oregon"><option value="Pennsylvania"><option value="Rhode Island"><option value="South Carolina"><option value="South Dakota"><option value="Tennessee"><option value="Texas"><option value="Utah"><option value="Vermont"><option value="Virginia"><option value="Washington"><option value="West Virginia"><option value="Wisconsin"><option value="Wyoming">
+			</datalist>
+		</div>
+
+		<div>
+			<label>autofill + match-from-start</label>
+			<input type="text" list="browsers-4" data-fromstart data-autofill data-constrain required>
+			<p class="desc">Matches must begin from the first character.</p>
+			<datalist id="browsers-4">
+				<option value="Alabama"><option value="Alaska"><option value="Arizona"><option value="Arkansas"><option value="California"><option value="Colorado"><option value="Connecticut"><option value="Delaware"><option value="Florida"><option value="Georgia"><option value="Hawaii"><option value="Idaho"><option value="Illinois"><option value="Indiana"><option value="Iowa"><option value="Kansas"><option value="Kentucky"><option value="Louisiana"><option value="Maine"><option value="Maryland"><option value="Massachusetts"><option value="Michigan"><option value="Minnesota"><option value="Mississippi"><option value="Missouri"><option value="Montana"><option value="Nebraska"><option value="Nevada"><option value="New Hampshire"><option value="New Jersey"><option value="New Mexico"><option value="New York"><option value="North Carolina"><option value="North Dakota"><option value="Ohio"><option value="Oklahoma"><option value="Oregon"><option value="Pennsylvania"><option value="Rhode Island"><option value="South Carolina"><option value="South Dakota"><option value="Tennessee"><option value="Texas"><option value="Utah"><option value="Vermont"><option value="Virginia"><option value="Washington"><option value="West Virginia"><option value="Wisconsin"><option value="Wyoming">
+			</datalist>
+		</div>
+
+		<input type="submit">
+	</form>
+	<script src="../../dist/force-list-option.js"></script>
+	<script>
+		forceListOption();
+	</script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+{
+  "name": "force-list-option",
+  "version": "1.0.0",
+  "description": "Forces an input's value to match the value of one of its datalist options, and then some.",
+  "author": "Tyler Peterson <tylerjpeterson@gmail.com>",
+  "main": "index.js",
+  "scripts": {
+    "docs": "jsdoc index.js lib/*/index.js -p -c .jsdoc.json -d docs/",
+    "build": "mkdir -p tmp/ && npm run js:dev && npm run js:dist",
+    "watch": "npm run build && npm run watch:js",
+    "watch:js": "onchange 'index.js' -- npm run js:dev",
+    "js:dist": "mkdir -p dist/ && browserify ./index.js --standalone forceListOption > tmp/force-list-option.js && uglifyjs -c 'unused=false,collapse_vars=false' -r 'ret,define,module,require,exports' --screw-ie8 -- tmp/force-list-option.js > dist/force-list-option.js",
+    "js:dev": "browserify -r ./node_modules/chai-as-promised/lib/chai-as-promised.js:chai-as-promised > tmp/chai-promised.js && browserify -t [ browserify-istanbul ] index.js --standalone forceListOption > tmp/force-list-option.debug.js",
+    "coverage": "npm run js:dev && npm run coverage:run && npm run coverage:report",
+    "coverage:run": "phantomjs ./node_modules/mocha-phantomjs-core/mocha-phantomjs-core.js ./test/spec/index.html spec '{\"useColors\":true,\"hooks\":\"./../../test/hooks.js\"}'",
+    "coverage:report": "istanbul report --root coverage lcov && open coverage/lcov-report/index.html",
+    "test": "npm run js:dev && phantomjs ./node_modules/mocha-phantomjs-core/mocha-phantomjs-core.js test/spec/index.html spec '{\"useColors\":true}'",
+    "test:browser": "open test/spec/index.html",
+    "example": "open test/examples/index.html",
+    "lint": "xo index.js lib/*/index.js  || true"
+  },
+  "dependencies": {
+    "closest": "0.0.1",
+    "is-el": "^1.0.0",
+    "lodash": "^4.17.4",
+    "tabbable": "^1.0.5",
+    "to-array": "^0.1.4"
+  },
+  "devDependencies": {
+    "browserify": "latest",
+    "browserify-istanbul": "^2.0.0",
+    "chai": "^3.4.1",
+    "chai-as-promised": "^6.0.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^2.3.4",
+    "mocha-phantomjs-core": "^2.1.1",
+    "onchange": "^2.0.0",
+    "q": "^1.4.1",
+    "requestanimationframe": "0.0.23",
+    "uglify-js": "^2.8.12"
+  },
+  "optionalDependencies": {
+    "jsdoc": "^3.4.0",
+    "phantomjs-prebuilt": "^2.1.1",
+    "xo": "^0.17.1"
+  },
+  "bugs": {
+    "url": "https://github.com/tylerjpeterson/force-list-option/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tylerjpeterson/force-list-option"
+  },
+  "homepage": "https://github.com/tylerjpeterson/force-list-option",
+  "contributors": [
+    ""
+  ],
+  "xo": {
+    "globals": [
+      "assert",
+      "beforeEach",
+      "describe",
+      "document",
+      "expect",
+      "it",
+      "module",
+      "require",
+      "window"
+    ]
+  },
+  "keywords": [],
+  "engines": {
+    "node": ">=0.10.3"
+  },
+  "license": "MIT"
+}
