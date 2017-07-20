@@ -35,12 +35,7 @@
   ],
   "xo": {
     "globals": [
-      "assert",
-      "beforeEach",
-      "describe",
       "document",
-      "expect",
-      "it",
       "module",
       "require",
       "window"
